@@ -232,3 +232,57 @@ document.querySelectorAll(".cap-form").forEach(function (form) {
   });
 });
 </script>
+
+<script>
+// ── GoatCounter engagement events (each fires once per visit) ───
+(function () {
+  var done = {};
+  function send(path, title) {
+    var n = 0;
+    (function go() {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: path, title: title, event: true });
+      } else if (n++ < 25) {
+        setTimeout(go, 200);
+      }
+    })();
+  }
+  function fire(path, title) {
+    if (done[path]) return;          // once per visit
+    done[path] = true;
+    send(path, title);
+  }
+
+  // 1. time on page
+  [10, 30, 60].forEach(function (s) {
+    setTimeout(function () { fire("time-" + s + "s", s + "s on page"); }, s * 1000);
+  });
+
+  // 2. sections entering the viewport (fire once, then stop observing)
+  var SECTIONS = [
+    { sel: ".chart-stage", name: "view-chart",      title: "Chart in view" },
+    { sel: ".beats",       name: "view-howitworks", title: "How it works in view" },
+    { sel: "#founding",    name: "view-founding",   title: "Founding CTA in view" },
+    { sel: ".faq",         name: "view-faq",        title: "FAQ in view" }
+  ];
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        fire(e.target.dataset.ev, e.target.dataset.evt);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0, rootMargin: "0px 0px -30% 0px" });
+    SECTIONS.forEach(function (s) {
+      var el = document.querySelector(s.sel);
+      if (el) { el.dataset.ev = s.name; el.dataset.evt = s.title; io.observe(el); }
+    });
+  }
+
+  // 3. form focus, split by which form (hero vs founding)
+  var hero = document.querySelector(".hero-form input[name='email_address']");
+  if (hero) hero.addEventListener("focus", function () { fire("form-focus-hero", "Hero email focused"); }, { once: true });
+  var founding = document.querySelector("#founding input[name='email_address']");
+  if (founding) founding.addEventListener("focus", function () { fire("form-focus-founding", "Founding email focused"); }, { once: true });
+})();
+</script>
