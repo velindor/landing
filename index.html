@@ -21,51 +21,76 @@ description: "Track your whole net worth across brokers, P2P, crypto and propert
     </div>
   </div>
 
-  <!-- CHART: history + two named scenarios -->
-  <div class="chart-block">
+  <!-- CHART: history + two named scenarios, in its own card -->
+  <div class="chart-stage">
+    <div class="chart-card">
     <div class="chart-cap">
       <span class="tag">Net worth in EUR: history and two scenarios</span>
       <span class="preview">Product preview · launches Q3 2026</span>
     </div>
-    <svg class="chart" viewBox="0 0 980 340" role="img" aria-label="History rising to 247,000 euros today, then two scenario lines to 2034: selling reaches 512,000, keeping reaches 448,000.">
-      <!-- gridlines: plot ends at x=720 to leave a label gutter -->
+    <svg class="chart chart-desktop" viewBox="0 0 940 360" role="img" aria-label="History rising to 247,000 euros today, then two scenarios to 2034: selling reaches 512,000 and keeping reaches 448,000.">
+      <!-- gridlines: plot ends at x=800, value labels live to the right -->
       <g font-family="IBM Plex Mono,monospace" font-size="12" fill="#9AA09A">
-        <line x1="56" y1="48"  x2="720" y2="48"  stroke="#E3E6DD"/><text x="0" y="52">€500k</text>
-        <line x1="56" y1="120" x2="720" y2="120" stroke="#E3E6DD"/><text x="0" y="124">€375k</text>
-        <line x1="56" y1="192" x2="720" y2="192" stroke="#E3E6DD"/><text x="0" y="196">€250k</text>
-        <line x1="56" y1="264" x2="720" y2="264" stroke="#E3E6DD"/><text x="0" y="268">€125k</text>
+        <line x1="60" y1="56"  x2="800" y2="56"  stroke="#E3E6DD"/><text x="0" y="60">€500k</text>
+        <line x1="60" y1="117" x2="800" y2="117" stroke="#E3E6DD"/><text x="0" y="121">€375k</text>
+        <line x1="60" y1="178" x2="800" y2="178" stroke="#E3E6DD"/><text x="0" y="182">€250k</text>
+        <line x1="60" y1="239" x2="800" y2="239" stroke="#E3E6DD"/><text x="0" y="243">€125k</text>
       </g>
-      <!-- history fill + line (today at x=470, y=224) -->
-      <path d="M56 292 L160 286 L264 264 L368 270 L470 224 L470 292 Z" fill="#2B59E0" opacity="0.08"/>
-      <path class="draw" d="M56 292 L160 286 L264 264 L368 270 L470 224" fill="none" stroke="#2B59E0" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- history fill + line (today at x=440, y=184) -->
+      <path d="M60 278 L150 272 L245 252 L335 258 L440 184 L440 300 L60 300 Z" fill="#2B59E0" opacity="0.08"/>
+      <path class="draw" d="M60 278 L150 272 L245 252 L335 258 L440 184" fill="none" stroke="#2B59E0" stroke-width="2.5" stroke-linejoin="round"/>
       <!-- today divider -->
-      <line x1="470" y1="70" x2="470" y2="292" stroke="#161A1F" stroke-width="1" stroke-dasharray="3 4" opacity=".45"/>
-      <text x="470" y="60" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#161A1F">today · €247k</text>
-      <circle cx="470" cy="224" r="4" fill="#2B59E0"/>
-      <!-- scenario lines end at x=720 -->
+      <line x1="440" y1="74" x2="440" y2="300" stroke="#161A1F" stroke-width="1" stroke-dasharray="3 4" opacity=".45"/>
+      <text x="440" y="64" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#161A1F">today · €247k</text>
+      <circle cx="440" cy="184" r="4" fill="#2B59E0"/>
+      <!-- scenario fan to 2034, with value at each line end -->
       <g class="fan">
-        <path d="M470 224 L580 176 L660 130 L720 96" fill="none" stroke="#2B59E0" stroke-width="2" stroke-dasharray="6 6" opacity=".45"/>
-        <path d="M470 224 L580 156 L660 96 L720 56" fill="none" stroke="#2B59E0" stroke-width="2.2" stroke-dasharray="6 6"/>
-        <circle cx="720" cy="56" r="3.5" fill="#2B59E0"/>
-        <circle cx="720" cy="96" r="3.5" fill="#9AA09A"/>
-        <!-- right gutter labels: plot ends 720, labels start 740 -->
-        <g font-family="IBM Plex Mono,monospace">
-          <text x="740" y="52"  font-size="12.5" font-weight="500" fill="#161A1F">Sell in 2029</text>
-          <text x="740" y="69"  font-size="13"   font-weight="500" fill="#2B59E0">€512k</text>
-          <line x1="740" y1="80" x2="860" y2="80" stroke="#E3E6DD"/>
-          <text x="740" y="100" font-size="12.5" fill="#9AA09A">Keep it</text>
-          <text x="740" y="117" font-size="13"   fill="#9AA09A">€448k</text>
-          <text x="740" y="140" font-size="12"   fill="#2348BD">Δ €64k by 2034</text>
-        </g>
+        <path d="M440 184 L570 158 L690 122 L800 84" fill="none" stroke="#2B59E0" stroke-width="2" stroke-dasharray="6 6" opacity=".45"/>
+        <path d="M440 184 L570 138 L690 96 L800 54" fill="none" stroke="#2B59E0" stroke-width="2.2" stroke-dasharray="6 6"/>
+        <circle cx="800" cy="54" r="4" fill="#2B59E0"/>
+        <circle cx="800" cy="84" r="4" fill="#9AA09A"/>
+        <text x="818" y="59" font-family="IBM Plex Mono,monospace" font-size="18" font-weight="500" fill="#2B59E0">€512k</text>
+        <text x="818" y="90" font-family="IBM Plex Mono,monospace" font-size="18" fill="#9AA09A">€448k</text>
       </g>
       <!-- x labels -->
       <g font-family="IBM Plex Mono,monospace" font-size="12" fill="#9AA09A">
-        <text x="56" y="316">2021</text><text x="240" y="316">2024</text><text x="450" y="316">2026</text><text x="600" y="316">2030</text><text x="694" y="316">2034</text>
+        <text x="60" y="332">2021</text><text x="250" y="332">2024</text><text x="428" y="332">2026</text><text x="650" y="332">2030</text><text x="786" y="332">2034</text>
+      </g>
+    </svg>
+    <svg class="chart chart-mobile" viewBox="0 0 340 240" role="img" aria-label="History rising to 247,000 euros today, then two scenarios to 2034: selling reaches 512,000 and keeping reaches 448,000.">
+      <!-- gridlines: plot ends at x=272, value labels to the right -->
+      <g font-family="IBM Plex Mono,monospace" font-size="10" fill="#9AA09A">
+        <line x1="44" y1="56"  x2="272" y2="56"  stroke="#E3E6DD"/><text x="0" y="59">€500k</text>
+        <line x1="44" y1="94"  x2="272" y2="94"  stroke="#E3E6DD"/><text x="0" y="97">€375k</text>
+        <line x1="44" y1="133" x2="272" y2="133" stroke="#E3E6DD"/><text x="0" y="136">€250k</text>
+        <line x1="44" y1="171" x2="272" y2="171" stroke="#E3E6DD"/><text x="0" y="174">€125k</text>
+      </g>
+      <!-- history fill + line (today at x=174, y=134) -->
+      <path d="M44 196 L80 192 L116 178 L150 168 L174 134 L174 210 L44 210 Z" fill="#2B59E0" opacity="0.08"/>
+      <path class="draw" d="M44 196 L80 192 L116 178 L150 168 L174 134" fill="none" stroke="#2B59E0" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- today divider -->
+      <line x1="174" y1="48" x2="174" y2="210" stroke="#161A1F" stroke-width="1" stroke-dasharray="3 4" opacity=".45"/>
+      <text x="174" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#161A1F">today · €247k</text>
+      <circle cx="174" cy="134" r="4" fill="#2B59E0"/>
+      <!-- scenario lines, with value at each line end -->
+      <g class="fan">
+        <path d="M174 134 L219 112 L255 86 L276 72" fill="none" stroke="#2B59E0" stroke-width="2" stroke-dasharray="6 6" opacity=".45"/>
+        <path d="M174 134 L219 96 L255 68 L276 52" fill="none" stroke="#2B59E0" stroke-width="2.2" stroke-dasharray="6 6"/>
+        <circle cx="276" cy="52" r="3.5" fill="#2B59E0"/>
+        <circle cx="276" cy="72" r="3.5" fill="#9AA09A"/>
+        <text x="286" y="56" font-family="IBM Plex Mono,monospace" font-size="13" font-weight="500" fill="#2B59E0">€512k</text>
+        <text x="286" y="76" font-family="IBM Plex Mono,monospace" font-size="13" fill="#9AA09A">€448k</text>
+      </g>
+      <!-- x labels -->
+      <g font-family="IBM Plex Mono,monospace" font-size="10" fill="#9AA09A">
+        <text x="40" y="226">2021</text><text x="156" y="226">2026</text><text x="248" y="226">2034</text>
       </g>
     </svg>
     <div class="legend">
       <span><i class="sw"></i>history, your real numbers</span>
-      <span><i class="sw dash"></i>scenarios you name, duplicate and compare</span>
+      <span><i class="sw dash"></i>Sell in 2029</span>
+      <span><i class="sw dash keep"></i>Keep it</span>
+    </div>
     </div>
   </div>
 
