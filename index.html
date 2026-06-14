@@ -1,0 +1,210 @@
+---
+layout: default
+title: "Velindor | Track your net worth and compare the paths ahead"
+description: "Track your whole net worth across brokers, P2P, crypto and property, in any currency, then test decisions like selling a property."
+---
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="eyebrow">No account linking · Local-first · Built in the EU</p>
+    <h1>Sell the property or keep it: which leaves you richer by&nbsp;2034?</h1>
+    <p class="sub">Velindor answers that on your real numbers. You track everything you own across brokers, P2P, crypto and property, in any currency, then test what happens next.</p>
+    <div class="hero-cta">
+    <form class="cap-form hero-form" data-variant="a" novalidate>
+      <div class="cap-row">
+        <input type="email" name="email_address" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
+        <button class="btn" type="submit">Get launch updates</button>
+      </div>
+      <div class="cap-status" aria-live="polite"></div>
+    </form>
+    <span class="micro hero-note">No payment to join. You can optionally grab a founding seat next: <span class="nowrap">€49/yr, locked for life.</span></span>
+    </div>
+  </div>
+
+  <!-- CHART: history + two named scenarios -->
+  <div class="chart-block">
+    <div class="chart-cap">
+      <span class="tag">Net worth in EUR: history and two scenarios</span>
+      <span class="preview">Product preview · launches Q3 2026</span>
+    </div>
+    <svg class="chart" viewBox="0 0 980 340" role="img" aria-label="History rising to 247,000 euros today, then two scenario lines to 2034: selling reaches 512,000, keeping reaches 448,000.">
+      <!-- gridlines: plot ends at x=720 to leave a label gutter -->
+      <g font-family="IBM Plex Mono,monospace" font-size="12" fill="#9AA09A">
+        <line x1="56" y1="48"  x2="720" y2="48"  stroke="#E3E6DD"/><text x="0" y="52">€500k</text>
+        <line x1="56" y1="120" x2="720" y2="120" stroke="#E3E6DD"/><text x="0" y="124">€375k</text>
+        <line x1="56" y1="192" x2="720" y2="192" stroke="#E3E6DD"/><text x="0" y="196">€250k</text>
+        <line x1="56" y1="264" x2="720" y2="264" stroke="#E3E6DD"/><text x="0" y="268">€125k</text>
+      </g>
+      <!-- history fill + line (today at x=470, y=224) -->
+      <path d="M56 292 L160 286 L264 264 L368 270 L470 224 L470 292 Z" fill="#2B59E0" opacity="0.08"/>
+      <path class="draw" d="M56 292 L160 286 L264 264 L368 270 L470 224" fill="none" stroke="#2B59E0" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- today divider -->
+      <line x1="470" y1="70" x2="470" y2="292" stroke="#161A1F" stroke-width="1" stroke-dasharray="3 4" opacity=".45"/>
+      <text x="470" y="60" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#161A1F">today · €247k</text>
+      <circle cx="470" cy="224" r="4" fill="#2B59E0"/>
+      <!-- scenario lines end at x=720 -->
+      <g class="fan">
+        <path d="M470 224 L580 176 L660 130 L720 96" fill="none" stroke="#2B59E0" stroke-width="2" stroke-dasharray="6 6" opacity=".45"/>
+        <path d="M470 224 L580 156 L660 96 L720 56" fill="none" stroke="#2B59E0" stroke-width="2.2" stroke-dasharray="6 6"/>
+        <circle cx="720" cy="56" r="3.5" fill="#2B59E0"/>
+        <circle cx="720" cy="96" r="3.5" fill="#9AA09A"/>
+        <!-- right gutter labels: plot ends 720, labels start 740 -->
+        <g font-family="IBM Plex Mono,monospace">
+          <text x="740" y="52"  font-size="12.5" font-weight="500" fill="#161A1F">Sell in 2029</text>
+          <text x="740" y="69"  font-size="13"   font-weight="500" fill="#2B59E0">€512k</text>
+          <line x1="740" y1="80" x2="860" y2="80" stroke="#E3E6DD"/>
+          <text x="740" y="100" font-size="12.5" fill="#9AA09A">Keep it</text>
+          <text x="740" y="117" font-size="13"   fill="#9AA09A">€448k</text>
+          <text x="740" y="140" font-size="12"   fill="#2348BD">Δ €64k by 2034</text>
+        </g>
+      </g>
+      <!-- x labels -->
+      <g font-family="IBM Plex Mono,monospace" font-size="12" fill="#9AA09A">
+        <text x="56" y="316">2021</text><text x="240" y="316">2024</text><text x="450" y="316">2026</text><text x="600" y="316">2030</text><text x="694" y="316">2034</text>
+      </g>
+    </svg>
+    <div class="legend">
+      <span><i class="sw"></i>history, your real numbers</span>
+      <span><i class="sw dash"></i>scenarios you name, duplicate and compare</span>
+    </div>
+  </div>
+
+  <!-- THE THREE BEATS -->
+  <section>
+    <p class="sec-label">How it works</p>
+    <h2>From your balances to your net worth to your 2034</h2>
+    <div class="beats">
+      <div class="beat">
+        <span class="n">01</span>
+        <h3>Type your balances, in any currency</h3>
+        <p>Once per platform, you type what it's worth: your Mintos balance, the USDC you're staking, the units of an ETF, a property you own and the mortgage on it. A position in USD, CZK, PLN or any other currency converts to EUR, or to whichever currency you live in. No imports, no uploads, no linked accounts.</p>
+      </div>
+      <div class="beat">
+        <span class="n">02</span>
+        <h3>It keeps itself current</h3>
+        <p>For listed assets you enter the units once and the price updates from public market data, so you don't retype a number every week. Currencies update on the official ECB daily rates, which keeps your USD and crypto honest in EUR between snapshots. Most months, keeping the whole picture current takes about 5 minutes.</p>
+      </div>
+      <div class="beat">
+        <span class="n">03</span>
+        <h3>Test what happens next</h3>
+        <p>You build a scenario from dated decisions and watch the line redraw. Sell the flat in 2029 at its tracked value, pay off the mortgage at its computed remaining balance, then put what's left into an asset at a yield you choose. You can also add monthly contributions, a one-off windfall, or a growth rate per asset class. Name a scenario, duplicate it, change one decision, and compare the two side by side.</p>
+      </div>
+    </div>
+    <div class="builder">
+      <p>My own money sits across several brokers, a couple of P2P platforms, some crypto and property. For years I tracked it by hand in a spreadsheet, and before every real decision I rebuilt the projections from scratch: sell or keep, retire at this date or that one. Velindor is that spreadsheet, kept alive.</p>
+      <p class="sig">Peter, the builder</p>
+    </div>
+  </section>
+
+  <!-- GATE 1: launch list. The founding seat (paid) lives on the next page. -->
+  <section id="founding">
+    <p class="sec-label">Get on the list</p>
+    <h2>Be first when Velindor launches</h2>
+    <div class="pricing-wrap">
+      <div class="receipt">
+        <span class="stamp">Launching Q3 2026</span>
+        <h3>The launch list</h3>
+        <p class="access-lead">Joining the list is free and takes a second. When Velindor launches in Q3 2026 you'll be among the first to know. After you join, you can optionally grab a founding seat: €49/yr, locked for life.</p>
+        <form class="cap-form" data-variant="a" novalidate>
+          <div class="cap-row">
+            <input type="email" name="email_address" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
+            <button class="btn" type="submit">Get launch updates</button>
+          </div>
+          <div class="cap-status" aria-live="polite"></div>
+        </form>
+        <span class="micro">We'll email you when Velindor launches. Unsubscribe any time.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <p class="sec-label">Questions, answered straight</p>
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Is Velindor live today?</summary>
+        <p>Not yet. This is a pre-order, and the first version ships in Q3 2026 to founding members. The founding price and the refund terms are on the next page, before you pay anything.</p>
+      </details>
+      <details>
+        <summary>Where does my data live, and will you ever link to my accounts?</summary>
+        <p>No linking, ever: no bank connections, no API keys, no aggregators, and no document uploads. You type your snapshots, so we never see a statement. Your data lives in your browser by default, with encrypted sync on EU servers if you want your history on every device. Prices and currency rates flow in from public sources; your numbers don't flow out. Export to CSV any time, and delete it whenever you want.</p>
+      </details>
+      <details>
+        <summary>Which platforms work at launch?</summary>
+        <p>Anything with a value works from day one, because a platform is just a labeled snapshot. The asset classes are built in: brokerage holdings (IBKR, Degiro), P2P loans (Mintos, Bondora), crypto and staking, cash, property, and the mortgages against it. Auto-pricing covers European and US listings, including UCITS funds and Xetra tickers, plus major crypto, and currencies use the official ECB daily rates.</p>
+      </details>
+      <details>
+        <summary>How powerful are the scenarios?</summary>
+        <p>You chain dated events on your real positions: sell an asset at its tracked value, pay off a loan at its computed remaining balance, then put the proceeds into something at a yield you choose. You can add monthly contributions, a windfall, or a growth rate per asset class. Scenarios are saved by name, so you duplicate one, change a single decision, and compare them on one chart. Projections are models, not promises.</p>
+      </details>
+      <details>
+        <summary>Who is behind this?</summary>
+        <p>An EU-based developer and investor who tracked a spread of platforms in a spreadsheet for years. Velindor is independent, with no affiliation to any platform it works with.</p>
+      </details>
+    </div>
+  </section>
+
+<script>
+// ── Gate 1 wiring (Kit / ConvertKit) ────────────────────────────
+// Subscribes the email to the Kit form, shows progress, then on success
+// redirects to the checkout page carrying ?v= (variant) and ?e= (email).
+// The form's tag is configured on Kit's side via the form settings.
+const KIT_FORM_ID = "9562743";
+const THANKS_URL = "thanks.html";
+
+document.querySelectorAll(".cap-form").forEach(function (form) {
+  if (form.dataset.init) return;
+  form.dataset.init = "1";
+  var input = form.querySelector('input[name="email_address"]');
+  var status = form.querySelector(".cap-status");
+  var v = form.dataset.variant || "a";
+
+  input.addEventListener("input", function () { input.removeAttribute("aria-invalid"); });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = input.value.trim();
+    if (!email || email.indexOf("@") < 1) {
+      input.setAttribute("aria-invalid", "true");
+      input.focus();
+      return;
+    }
+    var fd = new URLSearchParams(new FormData(form));
+    form.classList.add("is-busy");
+    if (status) { status.textContent = "Subscribing..."; status.className = "cap-status"; }
+
+    fetch("https://app.convertkit.com/forms/" + KIT_FORM_ID + "/subscriptions", {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: fd,
+    })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, body: j }; }); })
+      .then(function (res) {
+        if (res.ok && res.body && res.body.status === "success") {
+          form.classList.remove("is-busy");
+          form.classList.add("is-done");
+          if (status) { status.textContent = "Subscribed. Taking you to the next step..."; status.className = "cap-status success"; }
+          var next = THANKS_URL + "?v=" + encodeURIComponent(v) + "&e=" + encodeURIComponent(email);
+          setTimeout(function () { window.location.href = next; }, 700);
+        } else {
+          throw new Error("subscription failed");
+        }
+      })
+      .catch(function () {
+        form.classList.remove("is-busy");
+        if (status) {
+          status.innerHTML = 'Something went wrong. <a href="#" class="cap-retry">Try again</a> or email <a href="mailto:hello@velindor.com">hello@velindor.com</a>.';
+          status.className = "cap-status error";
+          var retry = status.querySelector(".cap-retry");
+          if (retry) retry.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            status.textContent = "";
+            status.className = "cap-status";
+            input.focus();
+          });
+        }
+      });
+  });
+});
+</script>
