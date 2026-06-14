@@ -101,16 +101,20 @@ the summary, do the relevant checks and report what you saw:
 - **Visual and structural:** open the changed page and confirm it renders, the
   layout holds at mobile width (the pages have breakpoints around 560 to 760px),
   and the change matches the brief. Note anything off.
-- **Funnel integrity (if the wiring was touched):** walk the path described in the
-  brief's self-test. The landing form must POST `{email, variant}` and redirect to
-  the checkout page carrying `?v=` and `?e=`. The checkout `STRIPE_BASE` constant
-  and the button `href` must stay byte-identical. `THANKS_URL` in `index.html` must
-  match the actual checkout filename (`thanks.html`). The checkout page stays
-  `noindex`.
+- **Funnel integrity (if the wiring was touched):** walk the path. The landing form
+  subscribes the email to Kit (field `email_address`, form id in the gate-1 script),
+  then redirects to the checkout carrying `?e=<email>`. On the checkout, the
+  `STRIPE_BASE` constant and the button `href` must stay byte-identical, and the
+  Stripe link is built with a `client_reference_id` (`founding` for the immediate
+  path, `founding-confirmed` after double opt-in) plus a prefilled email. `THANKS_URL`
+  in `index.html` must resolve to the checkout (`thanks`). Both checkout states render
+  from `_includes/checkout.html`. The checkout (`thanks` / `confirmed`) and the
+  post-payment page (`welcome`) stay `noindex`.
 - **Copy:** read the new words against the voice rules above. Confirm no em dashes,
   no banned vocabulary, explicit pre-order framing, digits for numbers.
-- **Links:** footer links to `privacy.html` and `terms.html` resolve. The wordmark
-  links home.
+- **Links:** internal links are extensionless (`/privacy`, `/terms`, `/thanks`,
+  `/welcome`), no `.html` (GitHub Pages and `jekyll serve` both serve those). Footer
+  Privacy/Terms resolve; the wordmark links home.
 
 Report each check with what you actually observed, not a claim that it "should"
 work. If you could not run a check, say so.
@@ -176,11 +180,14 @@ layout and includes, one stylesheet, and content pages that carry front matter.
 ├── _layouts/
 │   └── default.html    # the HTML shell: head include, header, {{ content }}, footer
 ├── _includes/
-│   ├── head.html       # meta (title/description/noindex from front matter), favicon, GoatCounter, fonts, style.css
+│   ├── head.html       # meta + canonical (extensionless) from front matter, favicon, GoatCounter, fonts, style.css
 │   ├── header.html     # the wordmark + top CTA (single source of truth, same on every page)
-│   └── footer.html     # the footer (single source of truth, same on every page)
-├── index.html          # landing page: front matter + content only (hero, chart, beats, founding, FAQ, gate-1 script)
-├── thanks.html         # checkout page, gate 2 (noindex, body_class: checkout; gate-2 Stripe script)
+│   ├── footer.html     # the footer (single source of truth, same on every page)
+│   └── checkout.html   # shared founding-seat body for thanks + confirmed (gate-2 Stripe link build)
+├── index.html          # landing page: front matter + content (hero, chart, beats, founding, FAQ, Kit gate-1 script)
+├── thanks.html         # checkout, gate 2, unconfirmed state (renders checkout.html; noindex)
+├── confirmed.html      # checkout after double opt-in (renders checkout.html, confirmed=true; noindex)
+├── welcome.html        # post-payment confirmation page (noindex, body_class: checkout)
 ├── privacy.html        # privacy policy (noindex, body_class: doc)
 ├── terms.html          # terms (noindex, body_class: doc)
 ├── style.css           # the one stylesheet: brand tokens, chrome, and every page's components

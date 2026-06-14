@@ -31,8 +31,8 @@
     <div class="price-line"><span class="k">Price after launch</span><span class="v strike">€96,00 / yr</span></div>
     <div class="price-line"><span class="k">Your renewal, as long as you stay</span><span class="v">€49,00 / yr</span></div>
     <div class="price-line total"><span class="k">Due today</span><span class="v">€49</span></div>
-    <!-- TODO: set STRIPE_BASE below to your Stripe Payment Link (one product: Founding year, €49). Keep it identical to the script constant. -->
-    <a class="btn" id="checkout" href="https://buy.stripe.com/REPLACE_ME">Claim founding seat, <span class="price">€49</span></a>
+    <!-- Stripe Payment Link (Founding year, €49). Keep this href identical to STRIPE_BASE in the script below. -->
+    <a class="btn" id="checkout" href="https://buy.stripe.com/9B66oGdMe0Du0IS2n21Fe00">Claim founding seat, <span class="price">€49</span></a>
     <p class="secure">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2.2" y="6" width="9.6" height="6" rx="1.2" stroke="#5D6571" stroke-width="1.3"/><path d="M4.3 6 V4.4 a2.7 2.7 0 0 1 5.4 0 V6" stroke="#5D6571" stroke-width="1.3"/></svg>
       Card handled by Stripe. Your card details go to Stripe, not to us.
@@ -54,11 +54,11 @@
 
 <script>
 // ── Gate 2 wiring ───────────────────────────────────────────────
-// Reads ?e= (email) and, on the unconfirmed page, ?v= (variant) set by
-// the landing form, and builds the Stripe link with attribution + a
-// prefilled email. The confirmed page attributes to "founding-confirmed".
-// TODO: keep STRIPE_BASE identical to the button href above.
-const STRIPE_BASE = "https://buy.stripe.com/REPLACE_ME";
+// Reads ?e= (email) set by the landing form and builds the Stripe link
+// with a prefilled email and a client_reference_id. The confirmed page
+// attributes to "founding-confirmed", the immediate path to "founding".
+// Keep STRIPE_BASE identical to the button href above.
+const STRIPE_BASE = "https://buy.stripe.com/9B66oGdMe0Du0IS2n21Fe00";
 
 (function () {
   const p = new URLSearchParams(window.location.search);
@@ -66,8 +66,7 @@ const STRIPE_BASE = "https://buy.stripe.com/REPLACE_ME";
 {% if include.confirmed %}
   const ref = "founding-confirmed";
 {% else %}
-  const v = (p.get("v") || "x").replace(/[^a-z0-9-]/gi, "");
-  const ref = "founding-" + v;
+  const ref = "founding";
 {% endif %}
   let url = STRIPE_BASE + (STRIPE_BASE.indexOf("?") > -1 ? "&" : "?") +
             "client_reference_id=" + encodeURIComponent(ref);
