@@ -1,0 +1,6 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Velindor logo">
+  <rect width="512" height="512" rx="120" fill="#0E1B4D"/>
+  <path d="M100 392 L100 320 L200 300 L300 210 L412 130 L412 392 Z" fill="#2B59E0"/>
+  <path d="M100 392 L100 350 L200 340 L300 280 L412 220 L412 392 Z" fill="#33C2FF"/>
+  <path d="M100 320 L200 300 L300 210 L412 130" fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

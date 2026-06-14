@@ -1,0 +1,193 @@
+/* Velindor landing, shared stylesheet.
+   Brand tokens, base chrome (header/footer/buttons/forms), and the page
+   components for the landing, checkout, and document pages all live here.
+   Page width is set per body class: default 1040, .checkout 680, .doc 720. */
+
+:root{
+  --paper:#FAFAF7;
+  --grid:#EDEFE7;
+  --ink:#161A1F;
+  --muted:#5D6571;
+  --rule:#DCDFD6;
+  --card:#FFFFFF;
+  --accent:#2B59E0;
+  --accent-deep:#2348BD;
+  --accent-soft:rgba(43,89,224,.10);
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:'Space Grotesk','Inter',ui-sans-serif,system-ui,sans-serif;
+  --body:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);color:var(--ink);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent-deep)}
+::selection{background:var(--accent-soft)}
+
+/* page width per body class */
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.checkout .wrap{max-width:680px}
+.doc .wrap{max-width:720px}
+
+/* ── header ─────────────────────────────────────────── */
+.top{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.wordmark{font-family:var(--mono);font-weight:500;font-size:17px;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:9px}
+.wm-mark{display:block;border-radius:6px}
+.wm-text{letter-spacing:-.01em}
+.top-cta{font-family:var(--mono);font-size:13px;text-decoration:none;color:var(--ink);border:1px solid var(--ink);padding:9px 14px;border-radius:6px;white-space:nowrap}
+.top-cta:hover{background:var(--ink);color:var(--paper)}
+
+/* ── buttons ────────────────────────────────────────── */
+.btn{font-family:var(--body);font-weight:600;font-size:16px;color:#fff;background:var(--accent);border:none;border-radius:6px;padding:15px 24px;text-decoration:none;display:inline-block;cursor:pointer}
+.btn:hover{background:var(--accent-deep)}
+.btn .price{font-family:var(--mono);font-weight:500}
+
+/* ── generic type ───────────────────────────────────── */
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:18px}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.022em;max-width:24ch}
+.sub{margin-top:20px;max-width:56ch;font-size:clamp(1.02rem,2.2vw,1.16rem);color:var(--muted)}
+.micro{font-size:13.5px;color:var(--muted)}
+.micro a{color:var(--muted)}
+section{padding:72px 0 0}
+.sec-label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:16px}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.6rem,3.6vw,2.3rem);letter-spacing:-.02em;line-height:1.12;max-width:26ch}
+
+/* ── hero ───────────────────────────────────────────── */
+.hero{padding:56px 0 20px}
+.cta-row{margin-top:30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+
+/* ── email capture forms ────────────────────────────── */
+.cap-form{display:flex;flex-direction:column;gap:8px;margin-top:24px}
+.cap-row{display:flex;flex-direction:column;gap:10px}
+.cap-form input{font-family:var(--mono);font-size:15px;padding:13px 14px;border:1px solid var(--rule);border-radius:6px;background:var(--paper);color:var(--ink);width:100%}
+.cap-form input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cap-form input[aria-invalid="true"]{border-color:#b00020}
+.cap-form .btn{width:100%;text-align:center;margin-top:0}
+.cap-status{font-family:var(--mono);font-size:13px;color:var(--muted);min-height:1.1em;line-height:1.4}
+.cap-status.success{color:var(--accent-deep)}
+.cap-status.error{color:#b00020}
+.cap-status a{color:inherit}
+.hero-cta{margin-top:30px;max-width:440px}
+.hero-note{margin-top:12px;display:block}
+.hero-form .cap-row{flex-direction:row;gap:8px}
+.hero-form input{flex:1}
+.hero-form .btn{width:auto;white-space:nowrap;flex-shrink:0}
+.nowrap{white-space:nowrap}
+
+/* ── chart ──────────────────────────────────────────── */
+.chart-block{padding:32px 0 8px}
+.chart-cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.chart-cap .tag{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.chart-cap .preview{font-family:var(--mono);font-size:12px;color:var(--accent-deep);border:1px solid var(--accent);border-radius:4px;padding:3px 8px}
+.chart{width:100%;height:auto;display:block}
+.draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1.8s ease-out .3s forwards}
+.fan{opacity:0;animation:fade .9s ease-out 1.9s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.fan{animation:none;opacity:1}}
+.legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
+.legend span{font-family:var(--mono);font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+.sw{width:14px;height:0;border-top:2.5px solid var(--accent);display:inline-block}
+.sw.dash{border-top-style:dashed;border-top-width:2px}
+
+/* ── the three beats ────────────────────────────────── */
+.beats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+.beat{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:26px}
+.beat .n{font-family:var(--mono);font-size:13px;color:var(--accent-deep)}
+.beat h3{font-family:var(--disp);font-weight:700;font-size:1.22rem;margin:10px 0 8px;letter-spacing:-.01em}
+.beat p{font-size:15px;color:var(--muted)}
+.mini-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.mini-chips span{font-family:var(--mono);font-size:12px;background:var(--paper);border:1px solid var(--rule);border-radius:5px;padding:4px 9px;color:var(--ink)}
+
+/* ── builder note ───────────────────────────────────── */
+.builder{margin-top:36px;border-left:3px solid var(--accent);padding:4px 0 4px 22px;max-width:62ch}
+.builder p{color:var(--ink);font-size:1.04rem}
+.builder .sig{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:10px}
+
+/* ── receipt / pricing card (landing + checkout) ────── */
+.pricing-wrap{display:flex;justify-content:flex-start;margin-top:36px}
+.receipt{position:relative;background:var(--card);border:1.5px dashed #ADB3A6;border-radius:10px;padding:34px;max-width:540px;width:100%}
+.checkout .receipt{max-width:none;margin-top:30px}
+.stamp{position:absolute;top:18px;right:18px;transform:rotate(-4deg);font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent-deep);border:1.5px solid var(--accent);border-radius:4px;padding:5px 9px;text-transform:uppercase}
+.receipt h3{font-family:var(--disp);font-weight:700;font-size:1.3rem}
+.access-lead{color:var(--muted);font-size:15.5px;margin-top:14px;margin-bottom:4px}
+.receipt ul{list-style:none;margin-top:18px}
+.receipt li{font-size:14.5px;color:var(--muted);padding:6px 0 6px 26px;position:relative}
+.receipt li::before{content:"·";position:absolute;left:0;color:var(--accent);font-family:var(--mono)}
+.receipt .btn{width:100%;text-align:center;margin-top:24px}
+.receipt .micro{display:block;text-align:center;margin-top:12px}
+
+/* ── FAQ ────────────────────────────────────────────── */
+.faq{margin-top:36px;max-width:720px}
+details{border-top:1px solid var(--rule);padding:18px 0}
+details:last-child{border-bottom:1px solid var(--rule)}
+summary{font-weight:600;font-size:1.02rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent-deep);font-size:1.2rem;flex-shrink:0}
+details[open] summary::after{content:"–"}
+details p{margin-top:12px;color:var(--muted);font-size:15.5px;max-width:60ch}
+
+/* ── checkout page specifics ────────────────────────── */
+.checkout h1{max-width:none;font-size:clamp(1.9rem,5vw,2.7rem);letter-spacing:-.02em}
+.checkout .hero{padding:14px 0 8px}
+.checkout .sub{margin-top:16px;font-size:1rem}
+.confirm{font-family:var(--mono);font-size:13px;color:var(--accent-deep);margin-top:40px;display:flex;align-items:center;gap:9px}
+.confirm svg{flex-shrink:0}
+.confirm-done{font-family:var(--mono);font-size:13px;color:var(--accent-deep);margin-top:40px;display:flex;align-items:center;gap:11px;background:rgba(43,89,224,0.08);border-left:3px solid var(--accent);border-radius:8px;padding:14px 18px}
+.confirm-done svg{flex-shrink:0}
+.receipt .what{color:var(--muted);font-size:14.5px;margin-top:8px}
+.price-line{font-family:var(--mono);display:flex;justify-content:space-between;gap:12px;font-size:14.5px;padding:12px 0;border-bottom:1px solid var(--grid)}
+.price-line:first-of-type{margin-top:22px}
+.price-line .k{color:var(--muted)}
+.price-line .v{color:var(--ink);font-weight:500}
+.price-line .v.strike{text-decoration:line-through;color:var(--muted);font-weight:400}
+.price-line.total{border-bottom:none;padding-top:16px}
+.price-line.total .k{color:var(--ink);font-weight:600;font-family:var(--body)}
+.price-line.total .v{font-size:1.5rem}
+.secure{font-size:13px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:7px;margin-top:14px}
+.secure svg{flex-shrink:0;opacity:.7}
+.notes{margin-top:30px;display:grid;gap:20px}
+.note{border-left:3px solid var(--accent);padding:4px 0 4px 22px}
+.note p{color:var(--muted);font-size:15px}
+.note b{color:var(--ink);font-weight:600}
+
+/* ── document pages (privacy / terms) ───────────────── */
+.content{padding:36px 0 8px}
+.content h1{font-family:var(--disp);font-weight:700;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.1;letter-spacing:-.02em;max-width:none}
+.eff{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:12px}
+.content h2{font-family:var(--disp);font-weight:700;font-size:1.3rem;letter-spacing:-.01em;margin-top:36px;max-width:none}
+.content h3{font-family:var(--disp);font-weight:700;font-size:1.05rem;margin-top:22px}
+.content p{margin-top:14px;color:var(--ink)}
+.content ul{margin-top:14px;padding-left:22px}
+.content li{margin-top:8px;color:var(--ink)}
+.content .muted{color:var(--muted);font-size:15.5px}
+.content strong{font-weight:600}
+
+/* ── footer ─────────────────────────────────────────── */
+footer{margin-top:88px;padding:36px 0 48px;border-top:1px solid var(--rule)}
+footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer p{font-size:13px;color:var(--muted);font-family:var(--mono)}
+footer a{color:var(--muted)}
+.checkout footer,.doc footer{margin-top:64px}
+
+/* ── focus ──────────────────────────────────────────── */
+.btn:focus-visible,.top-cta:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* ── responsive ─────────────────────────────────────── */
+@media (max-width:760px){
+  section{padding:52px 0 0}
+  .beats{grid-template-columns:1fr;gap:14px}
+  .cta-row .btn{width:100%;text-align:center}
+  .hero{padding:36px 0 10px}
+  .top-cta{font-size:12px;padding:8px 11px}
+}
+@media (max-width:560px){
+  .hero-form .cap-row{flex-direction:column}
+  .hero-form .btn{width:100%}
+  .checkout .btn{width:100%}
+}

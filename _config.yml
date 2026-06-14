@@ -1,0 +1,15 @@
+title: Velindor
+url: https://velindor.com
+
+# The site is a small set of self-contained, hand-written HTML pages
+# (index, thanks, privacy, terms). They carry no YAML front matter, so
+# Jekyll copies them through verbatim: the inline CSS, inline SVG chart,
+# and embedded favicon in each page are preserved exactly as authored.
+# The Gemfile + this config exist so `bundle exec jekyll serve` mirrors
+# the codatus.com local-dev flow, and to leave room for a blog later.
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - AGENTS.md
+  - assets

@@ -1,0 +1,77 @@
+{% comment %}
+  Shared checkout body for the founding seat. Rendered into two static pages:
+  - thanks.html         (unconfirmed: reached right after signup, ?v=&e=)
+  - confirmed.html      (confirmed: reached after double opt-in, include.confirmed=true)
+  Only the top strip, the "Rather decide later?" note, and the Stripe
+  client_reference_id differ between the two states. Everything else is identical.
+{% endcomment %}
+
+{% if include.confirmed %}
+  <p class="confirm-done">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#2B59E0" stroke-width="1.5"/><path d="M5 8.2 L7 10.2 L11 5.8" stroke="#2B59E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Email confirmed, thanks. You'll hear from us at launch.
+  </p>
+{% else %}
+  <p class="confirm">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#2B59E0" stroke-width="1.5"/><path d="M5 8.2 L7 10.2 L11 5.8" stroke="#2B59E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Thanks. Check your inbox to confirm your email.
+  </p>
+{% endif %}
+
+  <div class="hero">
+    <h1>Lock the founding price while you're here.</h1>
+    <p class="sub">This part is optional. A founding seat gets you the first invites at launch and keeps €49/yr for as long as you stay, while everyone else pays €96.</p>
+  </div>
+
+  <div class="receipt">
+    <span class="stamp">Launching Q3 2026</span>
+    <h2>Founding seat</h2>
+    <p class="what">A pre-order for Velindor, with first access at launch and your price locked.</p>
+    <div class="price-line"><span class="k">Founding year</span><span class="v">€49,00</span></div>
+    <div class="price-line"><span class="k">Price after launch</span><span class="v strike">€96,00 / yr</span></div>
+    <div class="price-line"><span class="k">Your renewal, as long as you stay</span><span class="v">€49,00 / yr</span></div>
+    <div class="price-line total"><span class="k">Due today</span><span class="v">€49</span></div>
+    <!-- TODO: set STRIPE_BASE below to your Stripe Payment Link (one product: Founding year, €49). Keep it identical to the script constant. -->
+    <a class="btn" id="checkout" href="https://buy.stripe.com/REPLACE_ME">Claim founding seat, <span class="price">€49</span></a>
+    <p class="secure">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2.2" y="6" width="9.6" height="6" rx="1.2" stroke="#5D6571" stroke-width="1.3"/><path d="M4.3 6 V4.4 a2.7 2.7 0 0 1 5.4 0 V6" stroke="#5D6571" stroke-width="1.3"/></svg>
+      Card handled by Stripe. Your card details go to Stripe, not to us.
+    </p>
+  </div>
+
+  <div class="notes">
+    <div class="note">
+      <p><b>Your €49 is safe.</b> This is a pre-order for software that isn't built yet, so the terms are simple. Email us any time before launch and we refund it in full, in one click, no reason needed.</p>
+    </div>
+    <div class="note">
+{% if include.confirmed %}
+      <p><b>Rather decide later?</b> Nothing to do now. You're on the list and you'll get an invite at launch, with the €49 founding price held until the founding group closes.</p>
+{% else %}
+      <p><b>Rather decide later?</b> Nothing to do now, and no payment is needed to stay in the loop. Confirm your email and you'll get an invite at launch, with the €49 founding price held until the founding group closes.</p>
+{% endif %}
+    </div>
+  </div>
+
+<script>
+// ── Gate 2 wiring ───────────────────────────────────────────────
+// Reads ?e= (email) and, on the unconfirmed page, ?v= (variant) set by
+// the landing form, and builds the Stripe link with attribution + a
+// prefilled email. The confirmed page attributes to "founding-confirmed".
+// TODO: keep STRIPE_BASE identical to the button href above.
+const STRIPE_BASE = "https://buy.stripe.com/REPLACE_ME";
+
+(function () {
+  const p = new URLSearchParams(window.location.search);
+  const e = p.get("e") || "";
+{% if include.confirmed %}
+  const ref = "founding-confirmed";
+{% else %}
+  const v = (p.get("v") || "x").replace(/[^a-z0-9-]/gi, "");
+  const ref = "founding-" + v;
+{% endif %}
+  let url = STRIPE_BASE + (STRIPE_BASE.indexOf("?") > -1 ? "&" : "?") +
+            "client_reference_id=" + encodeURIComponent(ref);
+  if (e) url += "&prefilled_email=" + encodeURIComponent(e);
+  document.getElementById("checkout").setAttribute("href", url);
+})();
+</script>

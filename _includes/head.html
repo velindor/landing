@@ -1,0 +1,15 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJWZWxpbmRvciBsb2dvIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEyMCIgZmlsbD0iIzBFMUI0RCIvPgogIDxwYXRoIGQ9Ik0xMDAgMzkyIEwxMDAgMzIwIEwyMDAgMzAwIEwzMDAgMjEwIEw0MTIgMTMwIEw0MTIgMzkyIFoiIGZpbGw9IiMyQjU5RTAiLz4KICA8cGF0aCBkPSJNMTAwIDM5MiBMMTAwIDM1MCBMMjAwIDM0MCBMMzAwIDI4MCBMNDEyIDIyMCBMNDEyIDM5MiBaIiBmaWxsPSIjMzNDMkZGIi8+CiAgPHBhdGggZD0iTTEwMCAzMjAgTDIwMCAzMDAgTDMwMCAyMTAgTDQxMiAxMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=">
+<title>{{ page.title }}</title>
+{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+
+<!-- Analytics: GoatCounter (cookieless, no IP storage) -->
+<script data-goatcounter="https://velindor.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css?v={{ site.time | date: '%s' }}">
