@@ -10,7 +10,7 @@ description: "Track your whole net worth across brokers, P2P, crypto and propert
     <h1>Sell the property or keep it: which leaves you richer by&nbsp;2034?</h1>
     <p class="sub">Velindor answers that on your real numbers. You track everything you own across brokers, P2P, crypto and property, in any currency, then test what happens next.</p>
     <div class="hero-cta">
-    <form class="cap-form hero-form" data-variant="a" novalidate>
+    <form class="cap-form hero-form" novalidate>
       <div class="cap-row">
         <input type="email" name="email_address" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
         <button class="btn" type="submit">Get launch updates</button>
@@ -130,7 +130,7 @@ description: "Track your whole net worth across brokers, P2P, crypto and propert
         <span class="stamp">Launching Q3 2026</span>
         <h3>The launch list</h3>
         <p class="access-lead">Joining the list is free and takes a second. When Velindor launches in Q3 2026 you'll be among the first to know. After you join, you can optionally grab a founding seat: €49/yr, locked for life.</p>
-        <form class="cap-form" data-variant="a" novalidate>
+        <form class="cap-form" novalidate>
           <div class="cap-row">
             <input type="email" name="email_address" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
             <button class="btn" type="submit">Get launch updates</button>
@@ -173,17 +173,16 @@ description: "Track your whole net worth across brokers, P2P, crypto and propert
 <script>
 // ── Gate 1 wiring (Kit / ConvertKit) ────────────────────────────
 // Subscribes the email to the Kit form, shows progress, then on success
-// redirects to the checkout page carrying ?v= (variant) and ?e= (email).
+// redirects to the checkout page carrying ?e= (email).
 // The form's tag is configured on Kit's side via the form settings.
 const KIT_FORM_ID = "9562743";
-const THANKS_URL = "thanks.html";
+const THANKS_URL = "thanks";
 
 document.querySelectorAll(".cap-form").forEach(function (form) {
   if (form.dataset.init) return;
   form.dataset.init = "1";
   var input = form.querySelector('input[name="email_address"]');
   var status = form.querySelector(".cap-status");
-  var v = form.dataset.variant || "a";
 
   input.addEventListener("input", function () { input.removeAttribute("aria-invalid"); });
 
@@ -210,7 +209,7 @@ document.querySelectorAll(".cap-form").forEach(function (form) {
           form.classList.remove("is-busy");
           form.classList.add("is-done");
           if (status) { status.textContent = "Subscribed. Taking you to the next step..."; status.className = "cap-status success"; }
-          var next = THANKS_URL + "?v=" + encodeURIComponent(v) + "&e=" + encodeURIComponent(email);
+          var next = THANKS_URL + "?e=" + encodeURIComponent(email);
           setTimeout(function () { window.location.href = next; }, 700);
         } else {
           throw new Error("subscription failed");
