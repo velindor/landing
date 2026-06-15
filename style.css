@@ -49,7 +49,7 @@ a{color:var(--accent-deep)}
 
 /* ── generic type ───────────────────────────────────── */
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:18px}
-h1{font-family:var(--disp);font-weight:700;font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.022em;max-width:24ch}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.022em}
 .sub{margin-top:20px;max-width:56ch;font-size:clamp(1.02rem,2.2vw,1.16rem);color:var(--muted)}
 .micro{font-size:13.5px;color:var(--muted)}
 .micro a{color:var(--muted)}
@@ -58,7 +58,7 @@ section{padding:72px 0 0}
 h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.6rem,3.6vw,2.3rem);letter-spacing:-.02em;line-height:1.12;max-width:26ch}
 
 /* ── hero ───────────────────────────────────────────── */
-.hero{padding:56px 0 20px}
+.hero{padding:28px 0 20px}
 .cta-row{margin-top:30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 
 /* ── email capture forms ────────────────────────────── */
@@ -75,7 +75,7 @@ h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.6rem,3.6vw,2.3rem);
 .hero-cta{margin-top:30px;max-width:440px}
 .hero-note{margin-top:12px;display:block}
 .hero-form .cap-row{flex-direction:row;gap:8px}
-.hero-form input{flex:1}
+.hero-form input{flex:1;background:#fff;border-color:var(--accent)}
 .hero-form .btn{width:auto;white-space:nowrap;flex-shrink:0}
 .nowrap{white-space:nowrap}
 
@@ -88,11 +88,45 @@ h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.6rem,3.6vw,2.3rem);
 .chart-cap .preview{font-family:var(--mono);font-size:12px;color:var(--accent-deep);border:1px solid var(--accent);border-radius:4px;padding:3px 8px}
 .chart{width:100%;height:auto;display:block}
 .chart-mobile{display:none}
-.draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1.8s ease-out .3s forwards}
-.fan{opacity:0;animation:fade .9s ease-out 1.9s forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fade{to{opacity:1}}
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.fan{animation:none;opacity:1}}
+@keyframes flyR{to{opacity:0;transform:translateX(150px)}}
+@keyframes up{to{opacity:0;transform:translate(40px,-26px)}}
+@keyframes cfade{to{opacity:0}}
+
+/* ── hero: portfolio snapshot dissolving into the chart ───── */
+.chart-card{position:relative;overflow:hidden}
+.consol{position:absolute;inset:0;z-index:3;padding:48px 30px 20px;display:flex;align-items:stretch;gap:34px}
+.c-list{flex:1.18;display:flex;flex-direction:column;justify-content:center;padding:8px 0}
+.crow{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:18px;padding:7px 0;animation:flyR .55s ease forwards}
+.c-list .crow + .crow{border-top:1px solid rgba(22,26,31,.07)}
+.crow .k{display:flex;align-items:center;gap:14px;color:var(--ink)}
+.crow .k .dot{width:13px;height:13px;border-radius:4px}
+.crow .v{font-variant-numeric:tabular-nums}
+.crow .v .neg{color:#8A8F87}
+.c-div{width:2px;align-self:stretch;border-radius:2px;animation:cfade .5s ease forwards;animation-delay:2.5s;
+  background:linear-gradient(180deg,transparent,rgba(43,89,224,.3) 20%,rgba(51,194,255,.3) 80%,transparent)}
+.c-right{flex:.92;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;animation:up .6s ease forwards;animation-delay:2.4s}
+.c-lead{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.c-num{font-family:var(--mono);font-weight:500;font-size:clamp(40px,5.6vw,62px);line-height:.95;letter-spacing:-.02em;color:var(--accent-deep)}
+.r-stocks{animation-delay:2.15s}.r-crypto{animation-delay:1.7s}.r-p2p{animation-delay:1.25s}.r-flat{animation-delay:.7s}.r-mort{animation-delay:.85s}
+
+/* chart elements reveal as their row leaves */
+.b-prop{opacity:0;animation:fade .6s ease forwards;animation-delay:.8s}
+.b-p2p{opacity:0;animation:fade .6s ease forwards;animation-delay:1.3s}
+.b-crypto{opacity:0;animation:fade .6s ease forwards;animation-delay:1.75s}
+.b-brok{opacity:0;animation:fade .6s ease forwards;animation-delay:2.2s}
+.netline{stroke-dasharray:560;stroke-dashoffset:560;animation:draw 1s ease forwards;animation-delay:2.4s}
+.c-today{opacity:0;animation:fade .55s ease forwards;animation-delay:2.85s}
+.fan{opacity:0;animation:fade .7s ease forwards;animation-delay:3.2s}
+.xlab{opacity:0;animation:fade .6s ease forwards;animation-delay:2.7s}
+.legend{opacity:0;animation:fade .6s ease forwards;animation-delay:3.5s}
+
+@media (prefers-reduced-motion:reduce){
+  .consol{display:none}
+  .crow,.c-right,.c-div,.b-prop,.b-p2p,.b-crypto,.b-brok,.c-today,.fan,.xlab,.legend{opacity:1;animation:none;transform:none}
+  .netline{stroke-dashoffset:0;animation:none}
+}
 .legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
 .legend span{font-family:var(--mono);font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
 .swatch{width:13px;height:13px;border-radius:3px;display:inline-block}
@@ -194,6 +228,14 @@ footer a{color:var(--muted)}
   .chart-mobile{display:block}
   .chart-stage{padding-top:16px}
   .chart-card{padding:18px 16px 14px;border-radius:12px}
+  .consol{flex-direction:column;justify-content:center;gap:0;padding:74px 18px 16px}
+  .c-list{flex:0 0 auto;width:100%;padding:0}
+  .c-div{display:block;width:100%;height:2px;align-self:stretch;margin:14px 0;transform:translateY(58px);
+    background:linear-gradient(90deg,transparent,rgba(43,89,224,.32) 20%,rgba(51,194,255,.32) 80%,transparent)}
+  .c-right{flex:0 0 auto;width:100%;align-items:center;text-align:center;transform:translateY(58px)}
+  .c-lead{margin-bottom:3px}
+  .c-num{font-size:38px}
+  .crow{font-size:14.5px;padding:6px 0}
 }
 @media (max-width:560px){
   .hero-form .cap-row{flex-direction:column}
