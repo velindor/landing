@@ -6,21 +6,13 @@
   client_reference_id differ between the two states. Everything else is identical.
 {% endcomment %}
 
-{% if include.confirmed %}
-  <p class="confirm-done">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#2B59E0" stroke-width="1.5"/><path d="M5 8.2 L7 10.2 L11 5.8" stroke="#2B59E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Email confirmed, thanks. You'll hear from us at launch.
-  </p>
-{% else %}
-  <p class="confirm">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#2B59E0" stroke-width="1.5"/><path d="M5 8.2 L7 10.2 L11 5.8" stroke="#2B59E0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Thanks. Check your inbox to confirm your email.
-  </p>
-{% endif %}
-
   <div class="hero">
-    <h1>Lock the founding price while you're here.</h1>
-    <p class="sub">This part is optional. A founding seat gets you the first invites at launch and keeps €49/yr for as long as you stay, while everyone else pays €96.</p>
+{% if include.confirmed %}
+    <h1>Email confirmed, thanks. You'll hear from us at launch.</h1>
+{% else %}
+    <h1>Thanks. Check your inbox to confirm your email.</h1>
+{% endif %}
+    <p class="sub">While you're here, you can get a founding seat: the first invites at launch, and your price locked at €49/yr for as long as you stay, while everyone else pays €96.</p>
   </div>
 
   <div class="receipt">

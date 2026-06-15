@@ -1,52 +1,39 @@
 ---
 layout: default
-title: "Stocks in USD, a flat in koruna, P2P in euros. What do you add up to?"
+title: "Every account and currency, as one number | Velindor"
 description: "Track your whole net worth across brokers, P2P, crypto and property, in any currency, then test decisions like paying off the mortgage or investing the difference."
 ---
 
   <!-- HERO -->
   <div class="hero">
     <p class="eyebrow">No account linking · Local-first · Built in the EU</p>
-    <h1>Stocks in USD, a flat in koruna, P2P in euros. What do you add up to?</h1>
-    <p class="sub">Velindor answers that on your real numbers. You track everything you own across brokers, P2P, crypto and property, in any currency, then test what happens next.</p>
-    <div class="hero-cta">
-    <form class="cap-form hero-form" novalidate>
-      <div class="cap-row">
-        <input type="email" name="email_address" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
-        <button class="btn" type="submit">Get launch updates</button>
-      </div>
-      <div class="cap-status" aria-live="polite"></div>
-    </form>
-    <span class="micro hero-note">No payment to join. You can optionally grab a founding seat next: <span class="nowrap">€49/yr, locked for life.</span></span>
-    </div>
+    <h1>Every account and currency, as one number. Then see where it's heading.</h1>
   </div>
 
-  <!-- CHART: history + two named scenarios, in its own card -->
+  <!-- CHART: opens as the portfolio snapshot (the ad), then becomes the live chart -->
   <div class="chart-stage">
     <div class="chart-card">
     <div class="chart-cap">
       <span class="tag">Net worth in EUR, by platform</span>
       <span class="preview">Product preview · launches Q3 2026</span>
     </div>
-    <svg class="chart chart-desktop" viewBox="0 0 980 360" role="img" aria-label="Net worth as a stack of platforms in different currencies rising to 247,000 euros today, then two scenarios to 2034: investing the spare cash reaches 512,000, overpaying the mortgage reaches 448,000.">
-      <!-- gridlines -->
-      <g font-family="IBM Plex Mono,monospace" font-size="13" fill="#9AA09A">
+    <svg class="chart chart-desktop" viewBox="0 0 980 360" role="img" aria-label="Mixed-currency positions consolidating into 247,000 euros today, then two scenarios to 2034: investing the spare cash reaches 512,000, overpaying the mortgage reaches 448,000.">
+      <g class="xlab" font-family="IBM Plex Mono,monospace" font-size="13" fill="#9AA09A">
         <line x1="60" y1="56"  x2="720" y2="56"  stroke="#E3E6DD"/><text x="0" y="60">€500k</text>
         <line x1="60" y1="117" x2="720" y2="117" stroke="#E3E6DD"/><text x="0" y="121">€375k</text>
         <line x1="60" y1="178" x2="720" y2="178" stroke="#E3E6DD"/><text x="0" y="182">€250k</text>
         <line x1="60" y1="239" x2="720" y2="239" stroke="#E3E6DD"/><text x="0" y="243">€125k</text>
       </g>
-      <!-- stacked composition: Property net > P2P > Crypto > Brokerage, summing to the net-worth line -->
-      <path d="M60 256 L130 253 L200 249 L270 246 L340 241 L410 234 L470 228 L470 300 L60 300 Z" fill="#2348BD"/>
-      <path d="M60 243 L130 239 L200 235 L270 230 L340 224 L410 214 L470 207 L470 228 L410 234 L340 241 L270 246 L200 249 L130 253 L60 256 Z" fill="#2B59E0"/>
-      <path d="M60 235 L130 230 L200 225 L270 220 L340 213 L410 202 L470 193 L470 207 L410 214 L340 224 L270 230 L200 235 L130 239 L60 243 Z" fill="#33C2FF"/>
-      <path d="M60 227 L130 222 L200 216 L270 210 L340 202 L410 190 L470 180 L470 193 L410 202 L340 213 L270 220 L200 225 L130 230 L60 235 Z" fill="#8AA6E8"/>
-      <path d="M60 227 L130 222 L200 216 L270 210 L340 202 L410 190 L470 180" fill="none" stroke="#16245E" stroke-width="2.4" stroke-linejoin="round"/>
-      <!-- today -->
-      <line x1="470" y1="66" x2="470" y2="300" stroke="#161A1F" stroke-width="1" stroke-dasharray="3 4" opacity=".4"/>
-      <text x="470" y="52" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" font-weight="500" fill="#161A1F">today · €247k</text>
-      <circle cx="470" cy="180" r="6" fill="#16245E"/>
-      <!-- two named scenarios -->
+      <path class="b-prop"   d="M60 256 L130 253 L200 249 L270 246 L340 241 L410 234 L470 228 L470 300 L60 300 Z" fill="#2348BD"/>
+      <path class="b-p2p"    d="M60 243 L130 239 L200 235 L270 230 L340 224 L410 214 L470 207 L470 228 L410 234 L340 241 L270 246 L200 249 L130 253 L60 256 Z" fill="#2B59E0"/>
+      <path class="b-crypto" d="M60 235 L130 230 L200 225 L270 220 L340 213 L410 202 L470 193 L470 207 L410 214 L340 224 L270 230 L200 235 L130 239 L60 243 Z" fill="#33C2FF"/>
+      <path class="b-brok"   d="M60 227 L130 222 L200 216 L270 210 L340 202 L410 190 L470 180 L470 193 L410 202 L340 213 L270 220 L200 225 L130 230 L60 235 Z" fill="#8AA6E8"/>
+      <path class="netline" d="M60 227 L130 222 L200 216 L270 210 L340 202 L410 190 L470 180" fill="none" stroke="#16245E" stroke-width="2.4" stroke-linejoin="round"/>
+      <g class="c-today">
+        <line x1="470" y1="66" x2="470" y2="300" stroke="#161A1F" stroke-width="1" stroke-dasharray="3 4" opacity=".4"/>
+        <text x="470" y="52" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="17" font-weight="500" fill="#161A1F">today · €247k</text>
+        <circle cx="470" cy="180" r="6" fill="#16245E"/>
+      </g>
       <g class="fan">
         <path d="M470 180 L580 138 L660 96 L720 62" fill="none" stroke="#2B59E0" stroke-width="2.4" stroke-dasharray="7 6"/>
         <path d="M470 180 L580 156 L660 118 L720 94" fill="none" stroke="#9AA09A" stroke-width="2" stroke-dasharray="6 6"/>
@@ -60,42 +47,37 @@ description: "Track your whole net worth across brokers, P2P, crypto and propert
           <text x="736" y="162" font-size="12.5" fill="#2348BD">two plans you name and compare</text>
         </g>
       </g>
-      <!-- x labels -->
-      <g font-family="IBM Plex Mono,monospace" font-size="13" fill="#9AA09A">
+      <g class="xlab" font-family="IBM Plex Mono,monospace" font-size="13" fill="#9AA09A">
         <text x="60" y="326">2021</text><text x="250" y="326">2024</text><text x="452" y="326">2026</text><text x="620" y="326">2030</text><text x="700" y="326">2034</text>
       </g>
     </svg>
-    <svg class="chart chart-mobile" viewBox="0 0 340 282" role="img" aria-label="Net worth as a stack of platforms in different currencies rising to 247,000 euros today, then two scenarios to 2034: investing the spare cash reaches 512,000, overpaying the mortgage reaches 448,000.">
-      <!-- gridlines -->
-      <g font-family="IBM Plex Mono,monospace" font-size="10" fill="#9AA09A">
+    <svg class="chart chart-mobile" viewBox="0 0 340 282" role="img" aria-label="Mixed-currency positions consolidating into 247,000 euros today, then two scenarios to 2034: investing the spare cash reaches 512,000, overpaying the mortgage reaches 448,000.">
+      <g class="xlab" font-family="IBM Plex Mono,monospace" font-size="10" fill="#9AA09A">
         <line x1="44" y1="44"  x2="272" y2="44"  stroke="#E3E6DD"/><text x="0" y="47">€500k</text>
         <line x1="44" y1="86"  x2="272" y2="86"  stroke="#E3E6DD"/><text x="0" y="89">€375k</text>
         <line x1="44" y1="128" x2="272" y2="128" stroke="#E3E6DD"/><text x="0" y="131">€250k</text>
         <line x1="44" y1="170" x2="272" y2="170" stroke="#E3E6DD"/><text x="0" y="173">€125k</text>
       </g>
-      <!-- stacked composition: Property net > P2P > Crypto > Brokerage -->
-      <path d="M44 182 L80 179 L116 175 L150 170 L180 162 L180 212 L44 212 Z" fill="#2348BD"/>
-      <path d="M44 173 L80 169 L116 164 L150 158 L180 147 L180 162 L150 170 L116 175 L80 179 L44 182 Z" fill="#2B59E0"/>
-      <path d="M44 167 L80 163 L116 157 L150 150 L180 138 L180 147 L150 158 L116 164 L80 169 L44 173 Z" fill="#33C2FF"/>
-      <path d="M44 162 L80 157 L116 150 L150 143 L180 129 L180 138 L150 150 L116 157 L80 163 L44 167 Z" fill="#8AA6E8"/>
-      <path d="M44 162 L80 157 L116 150 L150 143 L180 129" fill="none" stroke="#16245E" stroke-width="2" stroke-linejoin="round"/>
-      <!-- today -->
-      <line x1="180" y1="50" x2="180" y2="212" stroke="#161A1F" stroke-width="1" stroke-dasharray="3 4" opacity=".4"/>
-      <text x="180" y="36" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500" fill="#161A1F">today · €247k</text>
-      <circle cx="180" cy="129" r="5" fill="#16245E"/>
-      <!-- two named scenarios -->
+      <path class="b-prop"   d="M44 182 L80 179 L116 175 L150 170 L180 162 L180 212 L44 212 Z" fill="#2348BD"/>
+      <path class="b-p2p"    d="M44 173 L80 169 L116 164 L150 158 L180 147 L180 162 L150 170 L116 175 L80 179 L44 182 Z" fill="#2B59E0"/>
+      <path class="b-crypto" d="M44 167 L80 163 L116 157 L150 150 L180 138 L180 147 L150 158 L116 164 L80 169 L44 173 Z" fill="#33C2FF"/>
+      <path class="b-brok"   d="M44 162 L80 157 L116 150 L150 143 L180 129 L180 138 L150 150 L116 157 L80 163 L44 167 Z" fill="#8AA6E8"/>
+      <path class="netline" d="M44 162 L80 157 L116 150 L150 143 L180 129" fill="none" stroke="#16245E" stroke-width="2" stroke-linejoin="round"/>
+      <g class="c-today">
+        <line x1="180" y1="50" x2="180" y2="212" stroke="#161A1F" stroke-width="1" stroke-dasharray="3 4" opacity=".4"/>
+        <text x="180" y="36" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="500" fill="#161A1F">today · €247k</text>
+        <circle cx="180" cy="129" r="5" fill="#16245E"/>
+      </g>
       <g class="fan">
         <path d="M180 129 L240 98 L300 64" fill="none" stroke="#2B59E0" stroke-width="2.2" stroke-dasharray="6 6"/>
         <path d="M180 129 L240 112 L300 92" fill="none" stroke="#9AA09A" stroke-width="1.8" stroke-dasharray="5 6"/>
         <circle cx="300" cy="64" r="4" fill="#2B59E0"/>
         <circle cx="300" cy="92" r="4" fill="#9AA09A"/>
       </g>
-      <!-- x labels -->
-      <g font-family="IBM Plex Mono,monospace" font-size="10" fill="#9AA09A">
+      <g class="xlab" font-family="IBM Plex Mono,monospace" font-size="10" fill="#9AA09A">
         <text x="40" y="230">2021</text><text x="172" y="230">2026</text><text x="296" y="230">2034</text>
       </g>
-      <!-- scenario names, below the plot -->
-      <g font-family="IBM Plex Mono,monospace">
+      <g class="fan" font-family="IBM Plex Mono,monospace">
         <line x1="44" y1="251" x2="60" y2="251" stroke="#2B59E0" stroke-width="2.4" stroke-dasharray="6 5"/>
         <text x="66" y="255" font-size="12" fill="#161A1F">Invest the cash</text>
         <text x="300" y="255" font-size="12.5" font-weight="500" fill="#2B59E0" text-anchor="end">€512k</text>
@@ -108,10 +90,38 @@ description: "Track your whole net worth across brokers, P2P, crypto and propert
       <span><i class="swatch" style="background:#8AA6E8"></i>Brokerage · $/€</span>
       <span><i class="swatch" style="background:#33C2FF"></i>Crypto · USDC</span>
       <span><i class="swatch" style="background:#2B59E0"></i>P2P · €</span>
-      <span><i class="swatch" style="background:#2348BD"></i>Property net · Kč</span>
+      <span><i class="swatch" style="background:#2348BD"></i>Property net · CHF</span>
       <span><i class="sw dash"></i>paths ahead</span>
     </div>
+
+    <!-- portfolio snapshot overlay: dissolves into the chart above -->
+    <div class="consol" aria-hidden="true">
+      <div class="c-list">
+        <div class="crow r-stocks"><span class="k"><span class="dot" style="background:#8AA6E8"></span>Stocks · USD</span><span class="v">$24,000</span></div>
+        <div class="crow r-crypto"><span class="k"><span class="dot" style="background:#33C2FF"></span>Crypto · USDC</span><span class="v">25,000 USDC</span></div>
+        <div class="crow r-p2p"><span class="k"><span class="dot" style="background:#2B59E0"></span>P2P · EUR</span><span class="v">€38,500</span></div>
+        <div class="crow r-flat"><span class="k"><span class="dot" style="background:#2348BD"></span>Flat · CHF</span><span class="v">CHF 690,000</span></div>
+        <div class="crow r-mort"><span class="k"><span class="dot" style="background:#7E93D6"></span>Mortgage · CHF</span><span class="v"><span class="neg">−CHF 535,000</span></span></div>
+      </div>
+      <div class="c-div"></div>
+      <div class="c-right">
+        <div class="c-lead">your net worth, in EUR</div>
+        <div class="c-num">€247,000</div>
+      </div>
     </div>
+    </div>
+  </div>
+
+  <!-- LAUNCH LIST: the form sits right under the chart -->
+  <div class="hero-cta">
+    <form class="cap-form hero-form" novalidate>
+      <div class="cap-row">
+        <input type="email" name="email_address" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
+        <button class="btn" type="submit">Get launch updates</button>
+      </div>
+      <div class="cap-status" aria-live="polite"></div>
+    </form>
+    <span class="micro hero-note">No payment to join. You can optionally grab a founding seat next: <span class="nowrap">€49/yr, locked for life.</span></span>
   </div>
 
   <!-- THE THREE BEATS -->
@@ -122,7 +132,7 @@ description: "Track your whole net worth across brokers, P2P, crypto and propert
       <div class="beat">
         <span class="n">01</span>
         <h3>Type your balances, in any currency</h3>
-        <p>Once per platform, you type what it's worth: your Mintos balance, the USDC you're staking, the units of an ETF, a property you own and the mortgage on it. A position in USD, CZK, PLN or any other currency converts to EUR, or to whichever currency you live in. No imports, no uploads, no linked accounts.</p>
+        <p>Once per platform, you type what it's worth: your Mintos balance, the USDC you're staking, the units of an ETF, a property you own and the mortgage on it. A position in USD, CHF or any other currency converts to EUR, or to whichever currency you live in. No imports, no uploads, no linked accounts.</p>
       </div>
       <div class="beat">
         <span class="n">02</span>
