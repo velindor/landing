@@ -95,6 +95,7 @@ h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.6rem,3.6vw,2.3rem);
 @media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.fan{animation:none;opacity:1}}
 .legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
 .legend span{font-family:var(--mono);font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+.swatch{width:13px;height:13px;border-radius:3px;display:inline-block}
 .sw{width:14px;height:0;border-top:2.5px solid var(--accent);display:inline-block}
 .sw.dash{border-top-style:dashed;border-top-width:2px}
 .sw.dash.keep{border-top-color:#9AA09A}
